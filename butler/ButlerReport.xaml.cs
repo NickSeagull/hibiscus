@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace butler
 {
-    /// <summary>
-    /// Lógica de interacción para ButlerReport.xaml
-    /// </summary>
     public partial class ButlerReport : Page
     {
         public ButlerReport()

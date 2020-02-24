@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace butler
 {
-    /// <summary>
-    /// Lógica de interacción para ButlerHome.xaml
-    /// </summary>
     public partial class ButlerHome : Page
     {
         public ButlerHome()
