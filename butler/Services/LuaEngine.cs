@@ -1,5 +1,7 @@
 ﻿using NLua;
+using System;
 using System.IO;
+using System.Windows;
 
 namespace butler.Services
 {
@@ -13,7 +15,7 @@ namespace butler.Services
             this.preferences = preferences;
             this.state = new Lua();
             this.state.LoadCLRPackage();
-            this.state.DoString("_G.b = require \"b\" ");
+            this.state.DoString("_G.b = require 'butler'");
         }
 
         public void SetGlobal(string name, object value)
@@ -36,7 +38,14 @@ namespace butler.Services
 
         public void RunInit()
         {
-            state.DoFile(Path.Combine(this.preferences.Directory, "init.lua"));
+            try
+            {
+                state.DoFile(Path.Combine(this.preferences.Directory, "init.lua"));
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         public object RunCode(string code)
