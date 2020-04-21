@@ -14,3 +14,27 @@ WoxSearch(category){
   Send {BackSpace}
   Send % category
 }
+
+PassthroughKey(key){
+  modifier := ""
+  if (GetKeyState("Shift", "P")){
+    modifier := modifier . "+"
+  }
+  if (GetKeyState("Ctrl", "P")){
+    modifier := modifier . "^"
+  }
+  if (GetKeyState("Alt", "P")){
+    modifier := modifier . "!"
+  }
+  if (GetKeyState("RWin", "P")){
+    modifier := modifier . "`#"
+  }
+  Send % modifier . key
+  modifier := ""
+}
+
+NoOpKey(key, isHold, taps, state){
+  if (!isHold) {
+    PassthroughKey(key)
+  }
+}
