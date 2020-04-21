@@ -76,7 +76,8 @@ FKey(isHold, taps, state){
   if (isHold){
     Send % "{Ctrl " (state? "down" : "up") "}"
   } else {
-    if (enabledLayer == "k"){
+    if (enabledLayer == "w"){
+      RunOrActivateTitle("C:\Program Files\Mozilla Firefox\firefox.exe", "ahk_exe firefox.exe")
     } else {
       PassthroughKey("f")
     }
@@ -87,6 +88,7 @@ GKey(isHold, taps, state){
   BindKey("g", isHold, state)
   if (!isHold) {
     if (enabledLayer == "w"){
+      RunOrActivateTitle("C:\Program Files (x86)\fournova\Tower\Tower.exe", "ahk_exe Tower.exe")
     } else {
       PassthroughKey("g")
     }
@@ -212,7 +214,7 @@ NKey(isHold, taps, state){
     } else if (enabledLayer == "g"){
       WoxSearch("duckduckgo ")
     } else if (enabledLayer == "w") {
-      RunOrActivateTitle("C:\Users\" . USERNAME . "\AppData\Local\Programs\nirvanahq\Nirvana.exe", "ahk_exe Nirvana.exe")
+      RunOrActivateTitle("C:\Users\nikit\AppData\Local\Programs\Notion\Notion.exe", "ahk_exe Notion.exe")
     } else if (enabledLayer == "x") {
       Send {BackSpace}
     } else {
@@ -262,6 +264,11 @@ QKey(isHold, taps, state){
   if (!isHold){
     if (enabledLayer == "c"){
       Send % "'"
+    } else if (enabledLayer == "e"){
+      WoxSearch("espanso ")
+    } else if (enabledLayer == "b"){
+      ;; Groupy window switch
+      Send #```
     } else {
       PassthroughKey("q")
     }
@@ -285,7 +292,8 @@ SKey(isHold, taps, state){
   if (isHold){
     Send % "{LWin " (state? "down" : "up") "}"
   } else {
-    if (enabledLayer == "w"){
+    if (enabledLayer == "p"){
+      Send ^+!s
     } else if (enabledLayer == "v"){
       RunOrActivateTitle("C:\Users\" . USERNAME . "\AppData\Roaming\Spotify\Spotify.exe", "Spotify")
     } else {
