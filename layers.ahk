@@ -2,6 +2,51 @@
 
 global USERNAME := "nikit"
 
+class Layers {
+  class a {
+    hold(isDown){
+      Send % "{Shift " (isDown? "down" : "up") "}"
+    }
+  }
+  class p {
+    a() {
+      Send á
+    }
+  }
+}
+
+foo(key, isHold, taps, state){
+  ToolTip, entered foo
+  holdFunc := ""
+  if (isHold) {
+    holdFunc := Layers[key]["hold"]
+  }
+  if (isHold and state){
+    if (holdFunc) {
+      ToolTip, found holdfunc for %key%
+      holdFunc.Call("", state)
+    } else {
+      ToolTip, setting active layer for %key%
+      enabledLayer := key
+    }
+  } else if (isHold and !state) {
+    if (holdFunc) {
+      ToolTip, found holdfunc for %key%:
+      holdFunc.Call("", state)
+    } else {
+      ToolTip, removing layer for %key%
+      enabledLayer := ""
+    }
+  } else if (enabledLayer != "") {
+    ToolTip, Calling combination %enabledLayer% + %key%
+    Layers[enabledLayer][key].call("")
+  } else {
+    ToolTip, Passing through %key%
+    PassthroughKey(key)
+  }
+}
+
+
 ;; Remap Sticky-A to Shift
 AKey(isHold, taps, state){
   if (isHold){

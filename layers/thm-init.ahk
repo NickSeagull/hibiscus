@@ -1,6 +1,7 @@
 global enabledLayer := ""
+
 thm := new TapHoldManager(0, 175, 1, "$*")
-thm.Add("A", Func("AKey"))
+thm.Add("a", Func("foo").bind("a"))
 thm.Add("B", Func("BKey"))
 thm.Add("C", Func("CKey"))
 thm.Add("D", Func("DKey"))
@@ -15,7 +16,7 @@ thm.Add("L", Func("LKey"))
 thm.Add("M", Func("MKey"))
 thm.Add("N", Func("NKey"))
 thm.Add("O", Func("OKey"))
-thm.Add("P", Func("PKey"))
+thm.Add("P", Func("foo").bind("p"))
 thm.Add("Q", Func("QKey"))
 thm.Add("R", Func("RKey"))
 thm.Add("S", Func("SKey"))
