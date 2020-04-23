@@ -1,8 +1,4 @@
-﻿#include layers/all-keys.ahk
-#include layers/thm-init.ahk
-#include layers-help.ahk
-
-global USERNAME := "nikit"
+﻿global USERNAME := "nikit"
 
 class Layers {
   class space {
@@ -116,19 +112,19 @@ class Layers {
     }
 
     n() {
-      WoxSearch("duckduckgo ")
+      QuahkeCommands.Wox.search("duckduckgo ")
     }
 
     p() {
-      WoxSearch("")
+      QuahkeCommands.Wox.search("")
     }
 
     q() {
-      WoxSearch("espanso ")
+      QuahkeCommands.Wox.search("espanso ")
     }
 
     y() {
-      WoxSearch("youtube ")
+      QuahkeCommands.Wox.search("youtube ")
     }
   }
 
@@ -280,19 +276,19 @@ class Layers {
     }
 
     h() {
-      PassthroughKey("{Left}")
+      Quahke.press("{Left}")
     }
 
     j() {
-      PassthroughKey("{Down}")
+      Quahke.press("{Down}")
     }
 
     k() {
-      PassthroughKey("{Up}")
+      Quahke.press("{Up}")
     }
 
     l() {
-      PassthroughKey("{Right}")
+      Quahke.press("{Right}")
     }
 
     m() {

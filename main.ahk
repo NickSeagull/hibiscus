@@ -1,16 +1,7 @@
-﻿; Autoreload script on changes
-; FIXME: Only checks current file
-SetTimer,check_reload,1000
+﻿#include quahke/core.ahk
 
-check_reload:
-FileGetAttrib,attribs,%A_ScriptFullPath%
-IfInString,attribs,A
-{
-FileSetAttrib,-A,%A_ScriptFullPath%
-SplashTextOn,,,Updated script,
-Sleep,500
-Reload
-}
-Return
+;; User includes
+#include hotkeys.ahk
 
-#Include includes.ahk
+;; Must be last line
+#include quahke/finalizer.ahk

@@ -1,3 +1,7 @@
+;;
+;; Default initialization flags for Quahke
+;;
+#Warn
 #SingleInstance, Force
 #KeyHistory, 0
 SetBatchLines, -1
