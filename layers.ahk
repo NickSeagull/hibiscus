@@ -112,19 +112,19 @@ class Layers {
     }
 
     n() {
-      QuahkeCommands.Wox.search("duckduckgo ")
+      Q.Command.Wox.search("duckduckgo ")
     }
 
     p() {
-      QuahkeCommands.Wox.search("")
+      Q.Command.Wox.search("")
     }
 
     q() {
-      QuahkeCommands.Wox.search("espanso ")
+      Q.Command.Wox.search("espanso ")
     }
 
     y() {
-      QuahkeCommands.Wox.search("youtube ")
+      Q.Command.Wox.search("youtube ")
     }
   }
 
@@ -276,19 +276,19 @@ class Layers {
     }
 
     h() {
-      Quahke.press("{Left}")
+      Q.press("{Left}")
     }
 
     j() {
-      Quahke.press("{Down}")
+      Q.press("{Down}")
     }
 
     k() {
-      Quahke.press("{Up}")
+      Q.press("{Up}")
     }
 
     l() {
-      Quahke.press("{Right}")
+      Q.press("{Right}")
     }
 
     m() {
@@ -338,6 +338,13 @@ class Layers {
   class semicolon {
     hold(isDown){
       Send % "{Shift " (isDown? "down" : "up") "}"
+    }
+  }
+
+  class y {
+    a() {
+      caller := Exception("a", -1).what
+      MsgBox, called at %caller%
     }
   }
 }

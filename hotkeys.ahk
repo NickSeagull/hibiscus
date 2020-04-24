@@ -6,5 +6,11 @@ return
 ; Assign Ctrl-Alt-R as a hotkey to restart the script.
 ^!r::
 Reload
-QuahkeCommands.Message.send("Quahke reloaded")
+Q.popup("Quahke reloaded")
+return
+
+; Enable layers using Ctrl-Alt-E
+^!e::
+Q.Layers.__init__()
+Q.popup("Quahke - Layers On")
 return

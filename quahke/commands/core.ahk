@@ -1,4 +1,8 @@
-class QuahkeCommands {
+;;
+;; Quahke commands
+;;
+;; Utilities
+;;
+class Command {
 #include quahke/commands/wox.ahk
-#include quahke/commands/message.ahk
 }
