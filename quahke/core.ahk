@@ -21,3 +21,6 @@ class Q {
     Q.Layers.__finalize__()
   }
 }
+
+#include %A_MyDocuments%\Quahke
+#include init.ahk
