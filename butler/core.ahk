@@ -7,18 +7,18 @@
 
 #include butler/init.ahk
 
-class Q {
+class b {
   #include butler/builtins.ahk
   #include butler/commands/core.ahk
   #include butler/layers/core.ahk
 
   __init__(){
     ;; We don't initialize Layers, so the user can turn them off
-    ;; Q.Layers.__init__()
+    ;; b.Layers.__init__()
   }
 
   __finalize__(){
-    Q.Layers.__finalize__()
+    b.Layers.__finalize__()
   }
 }
 
