@@ -1,5 +1,5 @@
 ﻿;;
-;; Quahke builtins
+;; Butler builtins
 ;;
 ;; These functions are included under the `Q` class,
 ;; so they are actually static

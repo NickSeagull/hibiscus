@@ -1,5 +1,5 @@
 ;;
-;; Default initialization flags for Quahke
+;; Default initialization flags for Butler
 ;;
 #Warn
 #SingleInstance, Force

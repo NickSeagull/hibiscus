@@ -1,16 +1,16 @@
 ;;
-;; Reexports all the Quahke features
+;; Reexports all the Butler features
 ;;
 
 #Include <RunOrActivate>
 #Include <TapHoldManager>
 
-#include quahke/init.ahk
+#include butler/init.ahk
 
 class Q {
-  #include quahke/builtins.ahk
-  #include quahke/commands/core.ahk
-  #include quahke/layers/core.ahk
+  #include butler/builtins.ahk
+  #include butler/commands/core.ahk
+  #include butler/layers/core.ahk
 
   __init__(){
     ;; We don't initialize Layers, so the user can turn them off
@@ -22,5 +22,5 @@ class Q {
   }
 }
 
-#include %A_MyDocuments%\Quahke
+#include %A_MyDocuments%\Butler
 #include init.ahk
