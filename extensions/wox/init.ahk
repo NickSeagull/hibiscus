@@ -1,4 +1,4 @@
-class Wox {
+class wox {
   search(category){
     if (category != "") {
       category .= " "
