@@ -36,6 +36,7 @@ class Layers {
     b.Layers.equivalence["9"] := "nine"
     b.Layers.equivalence["0"] := "zero"
     b.Layers.equivalence["{Space}"] := "space"
+    b.Layers.equivalence["Space"] := "space"
   }
 
   __binder(key, isHold, taps, state){
