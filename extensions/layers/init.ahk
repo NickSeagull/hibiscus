@@ -1,4 +1,4 @@
-;;
+﻿;;
 ;; Butler Layers
 ;;
 ;; TODO: Add some description here
@@ -58,12 +58,24 @@ class Layers {
       holdFunc := Layers[keyString]["hold"]
     }
     if (isHold and state){
+      if (Layers[keyString]["doc"]){
+        layerTip :=  keyString . " layer`n`n"
+        for dockey, docdesc in Layers[keyString]["doc"] {
+          sep := "`t"
+          if (StrLen(dockey) < 7){
+            sep .= "`t"
+          }
+          layerTip .= dockey . sep . "👉`t" . docdesc . "`n"
+        }
+        Tooltip, % layerTip, 0 0
+      }
       if (holdFunc) {
         holdFunc.Call("", state)
       } else {
         b.Layers.enabledLayer := keyString
       }
     } else if (isHold and !state) {
+      Tooltip
       if (holdFunc) {
         holdFunc.Call("", state)
       } else {
