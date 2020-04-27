@@ -67,7 +67,8 @@ class Layers {
           }
           layerTip .= dockey . sep . "👉`t" . docdesc . "`n"
         }
-        Tooltip, % layerTip, 0 0
+        CoordMode, Tooltip, Screen
+        Tooltip, % layerTip, 0, 0
       }
       if (holdFunc) {
         holdFunc.Call("", state)
@@ -75,6 +76,7 @@ class Layers {
         b.Layers.enabledLayer := keyString
       }
     } else if (isHold and !state) {
+      CoordMode, Tooltip, Window
       Tooltip
       if (holdFunc) {
         holdFunc.Call("", state)
