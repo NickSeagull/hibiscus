@@ -7,7 +7,7 @@
 class Layers {
   static enabledLayer := ""
   static equivalence := {}
-  static allKeys := ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", ".", ",", ";", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+  static allKeys := ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", ".", ",", ";", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "\", "'", "/"]
 
   __init__() {
     b.Layers.__buildEquivalence()
@@ -16,6 +16,8 @@ class Layers {
       thm.Add(key, b.Layers.__binder.bind("", key))
     }
     thm.Add("Space", b.Layers.__binder.Bind("", "{Space}"))
+    thm.Add("RShift", b.Layers.__binder.Bind("", "{>+}"))
+    thm.Add("LShift", b.Layers.__binder.Bind("", "{<+}"))
   }
 
   __finalize__() {
@@ -37,6 +39,13 @@ class Layers {
     b.Layers.equivalence["0"] := "zero"
     b.Layers.equivalence["{Space}"] := "space"
     b.Layers.equivalence["Space"] := "space"
+    b.Layers.equivalence["\"] := "backslash"
+    b.Layers.equivalence["'"] := "quote"
+    b.Layers.equivalence["/"] := "slash"
+    b.Layers.equivalence["{>+}"] := "rightshift"
+    b.Layers.equivalence["RShift"] := "rightshift"
+    b.Layers.equivalence["{<+}"] := "leftshift"
+    b.Layers.equivalence["LShift"] := "leftshift"
   }
 
   __binder(key, isHold, taps, state){
