@@ -26,7 +26,7 @@ namespace butler.Services
 
         private void hook_KeyPressed(object sender, KeyPressedEventArgs e)
         {
-            MessageBox.Show("pressed");
+            MessageBox.Show($" {e.Modifier.ToString()} {e.Key.ToString()} pressed");
         }
     }
 }
