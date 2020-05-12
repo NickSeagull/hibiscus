@@ -16,7 +16,6 @@ SplitPath, A_ScriptName, , , , thisscriptname
 ;=========================================
 ;            Libraries inclusion
 ;=========================================
-#Include <RunOrActivate>
 #Include <TapHoldManager>
 
 ;=========================================
