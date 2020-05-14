@@ -18,9 +18,19 @@ class Layers {
     thm.Add("Space", b.Layers.__binder.Bind("", "{Space}"))
     thm.Add("RShift", b.Layers.__binder.Bind("", "{>+}"))
     thm.Add("LShift", b.Layers.__binder.Bind("", "{<+}"))
+    thm.Add("Esc", b.Layers.__clearLayer.Bind(""))
   }
 
   __finalize__() {
+  }
+
+  ;; TODO: Not sure if this works
+  __clearLayer(isHold, taps, state){
+    b.Layers.enabledLayer := ""
+    modifiers := ["LWin", "RWin", "Shift", "LCtrl", "RCtrl", "LAlt", "RAlt"]
+    for i, key in modifiers {
+      Send % "{ " . key . " up }"
+    }
   }
 
   __buildEquivalence(){
