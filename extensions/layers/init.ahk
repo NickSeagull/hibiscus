@@ -1,4 +1,4 @@
-;;
+﻿;;
 ;; Butler Layers
 ;;
 ;; TODO: Add some description here
@@ -49,15 +49,23 @@ class Layers {
   }
 
   __binder(key, isHold, taps, state){
+    ;; Try to get a string equivalence for the key
     keyString := b.Layers.equivalence[key]
     if (!keyString) {
       keyString := key
     }
+
+    ;; Get the `hold` method of the layer
     holdFunc := ""
     if (isHold) {
       holdFunc := Layers[keyString]["hold"]
     }
+
+    ;; If the key is being held and got pressed
     if (isHold and state){
+
+      ;; If a `doc` object exists, show some help
+      ;; regarding it
       if (Layers[keyString]["doc"]){
         layerTip :=  keyString . " layer`n`n"
         for dockey, docdesc in Layers[keyString]["doc"] {
@@ -70,26 +78,45 @@ class Layers {
         CoordMode, Tooltip, Screen
         Tooltip, % layerTip, 0, 0
       }
+
+      ;; If the hold function exists, we call it directly
       if (holdFunc) {
+        ;; Pass press/release (state variable)
         holdFunc.Call("", state)
+
+      ;; If not, we enable the layer
       } else {
         b.Layers.enabledLayer := keyString
       }
+    ;; If the key is being held and released
     } else if (isHold and !state) {
       CoordMode, Tooltip, Window
       Tooltip
+
+      ;; If the hold function exists we call it directly
       if (holdFunc) {
+        ;; Pass press/release (state variable)
         holdFunc.Call("", state)
       } else {
+
+        ;; If not, we disable the layer
         b.Layers.enabledLayer := ""
       }
+
+    ;; If a layer has been enabled
     } else if (b.Layers.enabledLayer != "") {
+
+      ;; We get the appropriate function for the current key press in
+      ;; the current enabled layer
       combinationFunction := Layers[b.Layers.enabledLayer][keyString]
       if (combinationFunction) {
         combinationFunction.call("")
       } else {
+        ;; If it doesn't exist, we just pass through the key
         b.press(key)
       }
+
+    ;; If no layer, no hold, no anything, we just passthrough the key
     } else {
       b.press(key)
     }
