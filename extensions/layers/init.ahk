@@ -16,6 +16,7 @@ class Layers {
       thm.Add(key, b.Layers.__binder.bind("", key))
     }
     thm.Add("Space", b.Layers.__binder.Bind("", "{Space}"))
+    thm.Add("Esc", b.Layers.__binder.Bind("", "{Esc}"))
     thm.Add("RShift", b.Layers.__binder.Bind("", "{>+}"))
     thm.Add("LShift", b.Layers.__binder.Bind("", "{<+}"))
   }
@@ -46,6 +47,8 @@ class Layers {
     b.Layers.equivalence["RShift"] := "rightshift"
     b.Layers.equivalence["{<+}"] := "leftshift"
     b.Layers.equivalence["LShift"] := "leftshift"
+    b.Layers.equivalence["{Esc}"] := "esc"
+    b.Layers.equivalence["Esc"] := "esc"
   }
 
   __binder(key, isHold, taps, state){

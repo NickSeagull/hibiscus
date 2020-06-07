@@ -6,6 +6,7 @@
 #Warn UseUnsetGlobal, Off
 #SingleInstance, Force
 #KeyHistory, 0
+DetectHiddenWindows, Off
 SetBatchLines, -1
 ListLines, Off
 SendMode Input
@@ -29,6 +30,7 @@ class b {
   #include extensions/clipboard/init.ahk
   #include extensions/wox/init.ahk
   #include extensions/layers/init.ahk
+  #include extensions/window/init.ahk
 
   enable(){
   }
