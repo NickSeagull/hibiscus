@@ -33,6 +33,7 @@ class b {
   #include extensions/window/init.ahk
 
   enable(){
+    Process, Priority, AutoHotkey.exe, H
   }
 }
 
