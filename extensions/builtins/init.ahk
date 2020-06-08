@@ -27,8 +27,22 @@ press(key){
 }
 
 ;;
+;; Sends a key press as its AHK keystring
+;;
+rawPress(key){
+  SendInput % key
+}
+
+;;
 ;; Shows a popup near the task bar with some message
 ;;
 popup(message) {
   TrayTip, % message, % " ", 0, 16
+}
+
+;;
+;; Holds a key
+;;
+hold(key, isDown) {
+  SendInput % "{" key " " (isDown? "down" : "up") "}"
 }
