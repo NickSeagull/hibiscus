@@ -26,6 +26,7 @@ SplitPath, A_ScriptName, , , , thisscriptname
 ;            Butler setup
 ;=========================================
 class b {
+  #include extensions/application/init.ahk
   #include extensions/builtins/init.ahk
   #include extensions/clipboard/init.ahk
   #include extensions/wox/init.ahk
