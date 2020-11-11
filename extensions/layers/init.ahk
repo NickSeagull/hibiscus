@@ -11,7 +11,7 @@ class Layers {
 
   __init__() {
     b.Layers.__buildEquivalence()
-    thm := new TapHoldManager(0, 250, 1, "$*")
+    thm := new TapHoldManager(0, 150, 1, "$*")
     for i, key in b.Layers.allKeys {
       thm.Add(key, b.Layers.__binder.bind("", key))
     }
