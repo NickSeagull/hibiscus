@@ -26,12 +26,12 @@ SplitPath, A_ScriptName, , , , thisscriptname
 ;            Hibiscus setup
 ;=========================================
 class hs {
-  #include extensions/application/init.ahk
-  #include extensions/builtins/init.ahk
-  #include extensions/clipboard/init.ahk
-  #include extensions/wox/init.ahk
-  #include extensions/layers/init.ahk
-  #include extensions/window/init.ahk
+  #include modules/application/init.ahk
+  #include modules/builtins/init.ahk
+  #include modules/clipboard/init.ahk
+  #include modules/wox/init.ahk
+  #include modules/layers/init.ahk
+  #include modules/window/init.ahk
 
   enable(){
     Process, Priority, AutoHotkey.exe, H
