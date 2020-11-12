@@ -8,7 +8,7 @@ class window {
     WinGet, winID, List
     newWindows := []
     Loop, %winID% {
-      newWindow := new b.window()
+      newWindow := new hs.window()
       newWindow._id := winID%A_Index%
       newWindows[%A_Index%] := newWindow
     }

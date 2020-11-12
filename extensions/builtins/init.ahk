@@ -1,5 +1,5 @@
 ﻿;;
-;; Butler builtins
+;; Hibiscus builtins
 ;;
 ;; These functions are included under the `b` class,
 ;; so they are actually static methods

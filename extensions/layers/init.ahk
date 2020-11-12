@@ -1,5 +1,5 @@
 ﻿;;
-;; Butler Layers
+;; Hibiscus Layers
 ;;
 ;; TODO: Add some description here
 ;;
@@ -10,50 +10,50 @@ class Layers {
   static allKeys := ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", ".", ",", ";", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "\", "'", "/"]
 
   __init__() {
-    b.Layers.__buildEquivalence()
+    hs.Layers.__buildEquivalence()
     thm := new TapHoldManager(0, 150, 1, "$*")
-    for i, key in b.Layers.allKeys {
-      thm.Add(key, b.Layers.__binder.bind("", key))
+    for i, key in hs.Layers.allKeys {
+      thm.Add(key, hs.Layers.__binder.bind("", key))
     }
-    thm.Add("Space", b.Layers.__binder.Bind("", "{Space}"))
-    thm.Add("Esc", b.Layers.__binder.Bind("", "{Esc}"))
-    thm.Add("RShift", b.Layers.__binder.Bind("", "{>+}"))
-    thm.Add("LShift", b.Layers.__binder.Bind("", "{<+}"))
+    thm.Add("Space", hs.Layers.__binder.Bind("", "{Space}"))
+    thm.Add("Esc", hs.Layers.__binder.Bind("", "{Esc}"))
+    thm.Add("RShift", hs.Layers.__binder.Bind("", "{>+}"))
+    thm.Add("LShift", hs.Layers.__binder.Bind("", "{<+}"))
   }
 
   __finalize__() {
   }
 
   __buildEquivalence(){
-    b.Layers.equivalence["."] := "period"
-    b.Layers.equivalence[","] := "comma"
-    b.Layers.equivalence[";"] := "semicolon"
-    b.Layers.equivalence["1"] := "one"
-    b.Layers.equivalence["2"] := "two"
-    b.Layers.equivalence["3"] := "three"
-    b.Layers.equivalence["4"] := "four"
-    b.Layers.equivalence["5"] := "five"
-    b.Layers.equivalence["6"] := "six"
-    b.Layers.equivalence["7"] := "seven"
-    b.Layers.equivalence["8"] := "eight"
-    b.Layers.equivalence["9"] := "nine"
-    b.Layers.equivalence["0"] := "zero"
-    b.Layers.equivalence["{Space}"] := "space"
-    b.Layers.equivalence["Space"] := "space"
-    b.Layers.equivalence["\"] := "backslash"
-    b.Layers.equivalence["'"] := "quote"
-    b.Layers.equivalence["/"] := "slash"
-    b.Layers.equivalence["{>+}"] := "rightshift"
-    b.Layers.equivalence["RShift"] := "rightshift"
-    b.Layers.equivalence["{<+}"] := "leftshift"
-    b.Layers.equivalence["LShift"] := "leftshift"
-    b.Layers.equivalence["{Esc}"] := "esc"
-    b.Layers.equivalence["Esc"] := "esc"
+    hs.Layers.equivalence["."] := "period"
+    hs.Layers.equivalence[","] := "comma"
+    hs.Layers.equivalence[";"] := "semicolon"
+    hs.Layers.equivalence["1"] := "one"
+    hs.Layers.equivalence["2"] := "two"
+    hs.Layers.equivalence["3"] := "three"
+    hs.Layers.equivalence["4"] := "four"
+    hs.Layers.equivalence["5"] := "five"
+    hs.Layers.equivalence["6"] := "six"
+    hs.Layers.equivalence["7"] := "seven"
+    hs.Layers.equivalence["8"] := "eight"
+    hs.Layers.equivalence["9"] := "nine"
+    hs.Layers.equivalence["0"] := "zero"
+    hs.Layers.equivalence["{Space}"] := "space"
+    hs.Layers.equivalence["Space"] := "space"
+    hs.Layers.equivalence["\"] := "backslash"
+    hs.Layers.equivalence["'"] := "quote"
+    hs.Layers.equivalence["/"] := "slash"
+    hs.Layers.equivalence["{>+}"] := "rightshift"
+    hs.Layers.equivalence["RShift"] := "rightshift"
+    hs.Layers.equivalence["{<+}"] := "leftshift"
+    hs.Layers.equivalence["LShift"] := "leftshift"
+    hs.Layers.equivalence["{Esc}"] := "esc"
+    hs.Layers.equivalence["Esc"] := "esc"
   }
 
   __binder(key, isHold, taps, state){
     ;; Try to get a string equivalence for the key
-    keyString := b.Layers.equivalence[key]
+    keyString := hs.Layers.equivalence[key]
     if (!keyString) {
       keyString := key
     }
@@ -89,7 +89,7 @@ class Layers {
 
       ;; If not, we enable the layer
       } else {
-        b.Layers.enabledLayer := keyString
+        hs.Layers.enabledLayer := keyString
       }
     ;; If the key is being held and released
     } else if (isHold and !state) {
@@ -103,25 +103,25 @@ class Layers {
       } else {
 
         ;; If not, we disable the layer
-        b.Layers.enabledLayer := ""
+        hs.Layers.enabledLayer := ""
       }
 
     ;; If a layer has been enabled
-    } else if (b.Layers.enabledLayer != "") {
+    } else if (hs.Layers.enabledLayer != "") {
 
       ;; We get the appropriate function for the current key press in
       ;; the current enabled layer
-      combinationFunction := Layers[b.Layers.enabledLayer][keyString]
+      combinationFunction := Layers[hs.Layers.enabledLayer][keyString]
       if (combinationFunction) {
         combinationFunction.call("")
       } else {
         ;; If it doesn't exist, we just pass through the key
-        b.press(key)
+        hs.press(key)
       }
 
     ;; If no layer, no hold, no anything, we just passthrough the key
     } else {
-      b.press(key)
+      hs.press(key)
     }
   }
 }
