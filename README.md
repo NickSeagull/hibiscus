@@ -12,7 +12,14 @@
 
 ## What is Hibiscus?
 
+Hibiscus is a framework that optimizes for your happiness, by providing functions that are predictable and consistent throughout their usage. It accomplishes this by providing a set of modules that are split by their main features.
+
+These modules add better categorization and names to AutoHotkey, along with better functions that extend AutoHotkey in reusable blocks that you can use.
+
 ## Contributing
+
+Highly appreciate if you contribute to Hibiscus. Trying it and reporting issues and/or ideas that arise is something really great. Bug reports are helpful too! Make sure that you read [the `CONTRIBUTING.md` file](CONTRIBUTING.md).
+
 
 ## Getting Started
 
@@ -41,3 +48,25 @@ For now, Hibiscus doesn't have an auto-update feature, to update it, perform a `
 cd C:\Users\yourname\some\safe\folder\hibiscus
 git pull
 ```
+
+## Usage
+
+When using Hibiscus, you write code in the `Hibiscus` folder of your `My Documents` folder. This is called your **Hibiscus configuration**. We will refer to it in the guide as **config**.
+
+Hibiscus pre-configures AutoHotkey to a set of [sensible defaults](https://github.com/NickSeagull/hibiscus/blob/master/hibiscus.ahk#L2), so don't bother adding stuff like `#Warn All` or `#SingleInstance, Force` in your config, as they are already enabled.
+
+Hibiscus modules are accessible under the `hs` object. For example, you can make Hibiscus switch to an existing Edge window, and if it doesn't exist, open a new one by using:
+
+```ahk
+hs.application.open("C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
+```
+
+## Modules reference
+
+You can find a reference of the modules and their functions [in the `docs` folder](docs/README.md).
+
+## Example configurations
+
+_Send a PR and add yours!_
+
+* [`@NickSeagull`](https://github.com/NickSeagull/hibiscus-god-mode)

@@ -1,5 +1,5 @@
 ;=========================================
-;            AutoHotKey flags
+;            Sensible defaults
 ;=========================================
 #Warn All
 #Warn UseUnsetLocal, Off
