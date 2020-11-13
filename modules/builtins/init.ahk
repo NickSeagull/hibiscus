@@ -1,7 +1,7 @@
 ﻿;;
 ;; Hibiscus builtins
 ;;
-;; These functions are included under the `b` class,
+;; These functions are included under the `hs` class,
 ;; so they are actually static methods
 ;;
 
