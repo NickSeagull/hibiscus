@@ -51,6 +51,15 @@ class Layers {
     hs.Layers.equivalence["Esc"] := "esc"
   }
 
+  __keyRelease(key, holdFunc){
+    ; Send {%key% up}
+    hs.Layers.enabledLayer := ""
+    if (holdFunc){
+      holdFunc.Call("")
+    }
+    Tooltip
+  }
+
   __binder(key, isHold, taps, state){
     ;; Try to get a string equivalence for the key
     keyString := hs.Layers.equivalence[key]
@@ -64,9 +73,10 @@ class Layers {
       holdFunc := Layers[keyString]["hold"]
     }
 
+    keyRelease := ObjBindMethod(hs.Layers, "__keyRelease", key, holdFunc)
     ;; If the key is being held and got pressed
     if (isHold and state){
-
+      SetTimer, % keyRelease , -1000
       ;; If a `doc` object exists, show some help
       ;; regarding it
       if (Layers[keyString]["doc"]){
@@ -93,6 +103,7 @@ class Layers {
       }
     ;; If the key is being held and released
     } else if (isHold and !state) {
+      SetTimer, % keyRelease , Off
       CoordMode, Tooltip, Window
       Tooltip
 
