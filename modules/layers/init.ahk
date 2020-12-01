@@ -76,7 +76,7 @@ class Layers {
     keyRelease := ObjBindMethod(hs.Layers, "__keyRelease", key, holdFunc)
     ;; If the key is being held and got pressed
     if (isHold and state){
-      SetTimer, % keyRelease , -1000
+      SetTimer, % keyRelease , -250
       ;; If a `doc` object exists, show some help
       ;; regarding it
       if (Layers[keyString]["doc"]){
